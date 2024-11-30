@@ -1,0 +1,49 @@
+# Ignorer les fichiers générés par Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environnements virtuels
+venv/
+env/
+*.egg-info/
+
+# Fichiers dbt
+dbt_modules/
+target/
+logs/
+manifest.json
+run_results.json
+sources.json
+
+# Base de données DuckDB
+*.duckdb
+*.duckdb-shm
+*.duckdb-wal
+
+# Données sensibles ou brutes
+data/*.csv
+data/*.json
+data/*.parquet
+!data/README.md  # Garde un fichier README pour documenter les datasets
+
+# Fichiers Streamlit générés
+.streamlit/
+
+# Configurations spécifiques à l'utilisateur
+.idea/
+.vscode/
+*.swp
+*.DS_Store
+
+# Fichiers de logs ou backups
+*.log
+*.bak
+*.tmp
+
+# Fichiers systèmes
+Thumbs.db
+
+
