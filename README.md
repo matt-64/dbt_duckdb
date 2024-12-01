@@ -58,23 +58,20 @@ Vous apprendrez à construire un pipeline analytique local pour manipuler, trans
 
 ## 📋 Étapes du projet
 
-### 1️⃣ Mise en place de l’environnement
+```bash
+# 1️⃣ Mise en place de l’environnement
 
-1. **Créez un environnement virtuel :**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # Pour Mac/Linux
-   venv\Scripts\activate      # Pour Windows
-Installez les dépendances nécessaires :
+# Créez un environnement virtuel :
+python3 -m venv venv
+source venv/bin/activate   # Pour Mac/Linux
+venv\Scripts\activate      # Pour Windows
 
-bash
-Copier le code
+# Installez les dépendances nécessaires :
 pip install dbt-duckdb duckdb streamlit pandas
-Configurez dbt :
-Ajoutez un fichier profiles.yml :
 
-yaml
-Copier le code
+# Configurez dbt :
+# Ajoutez un fichier profiles.yml :
+echo "
 first_dbt_test:
   outputs:
     dev:
@@ -82,65 +79,63 @@ first_dbt_test:
       path: data/dev.duckdb
       threads: 1
   target: dev
-2️⃣ Pipeline dbt : Transformations des données
-Ajoutez votre source :
-Placez le fichier CSV dans le dossier data/.
-Déclarez votre source dans dbt (schema.yml) :
+" > ~/.dbt/profiles.yml
 
-yaml
-Copier le code
+# 2️⃣ Pipeline dbt : Transformations des données
+
+# Ajoutez votre source :
+# Placez le fichier CSV dans le dossier data/.
+# Déclarez votre source dans dbt (schema.yml) :
+echo "
 sources:
   - name: iris_source
     tables:
       - name: iris
-Créez des modèles dbt :
-Exemple de transformation (aggregated_iris.sql) :
+" > models/schema.yml
 
-sql
-Copier le code
+# Créez des modèles dbt : Exemple de transformation (aggregated_iris.sql) :
+echo "
 SELECT
     Species,
     AVG(SepalLengthCm) AS avg_sepal_length,
     AVG(SepalWidthCm) AS avg_sepal_width
 FROM {{ source('iris_source', 'iris') }}
 GROUP BY Species
-Générez les vues DuckDB :
+" > models/aggregated_iris.sql
 
-bash
-Copier le code
+# Générez les vues DuckDB :
 dbt run
-3️⃣ Streamlit : Visualisation interactive
-Créez une application Streamlit (app.py) :
 
-python
-Copier le code
+# 3️⃣ Streamlit : Visualisation interactive
+
+# Créez une application Streamlit (app.py) :
+echo "
 import streamlit as st
 import duckdb
 
-st.set_page_config(page_title="Pipeline dbt + DuckDB + Streamlit", layout="wide")
-st.title("🚀 Pipeline dbt + DuckDB + Streamlit")
+st.set_page_config(page_title='Pipeline dbt + DuckDB + Streamlit', layout='wide')
+st.title('🚀 Pipeline dbt + DuckDB + Streamlit')
 
-con = duckdb.connect("data/dev.duckdb")
-query = """
+con = duckdb.connect('data/dev.duckdb')
+query = '''
     SELECT
         Species,
         AVG(SepalLengthCm) AS avg_sepal_length,
         AVG(SepalWidthCm) AS avg_sepal_width
     FROM main.iris_source
     GROUP BY Species
-"""
+'''
 result = con.execute(query).fetchdf()
 st.dataframe(result)
-st.bar_chart(result.set_index("Species"))
-Exécutez l’application :
+st.bar_chart(result.set_index('Species'))
+" > app.py
 
-bash
-Copier le code
+# Exécutez l’application :
 streamlit run app.py
+
 🎯 Points clés à retenir
 Avec ce projet, vous avez appris à intégrer et exploiter trois technologies complémentaires, chacune jouant un rôle clé dans un pipeline analytique moderne :
 
 dbt : Transformations SQL modulaire.
 DuckDB : Base SQL locale rapide.
 Streamlit : Visualisation interactive.
-Bravo pour votre travail ! 🚀
