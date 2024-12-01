@@ -5,10 +5,17 @@ sources:
     schema: main
     tables:
       - name: iris_source
-        description: "Table Iris source"
+        description: "Table contenant les données de l'iris"
 
 models:
   - name: iris_data
     description: "Modèle intermédiaire pour les données Iris"
   - name: aggregated_iris
-    description: "Données agrégées par espèce"
+    description: "Modèle qui agrège les données Iris par espèce"
+    columns:
+      - name: Species
+        description: "La classe de l'iris"
+      - name: avg_sepal_length
+        description: "Longueur moyenne du sépale pour chaque espèce"
+      - name: avg_sepal_width
+        description: "Largeur moyenne du sépale pour chaque espèce"
