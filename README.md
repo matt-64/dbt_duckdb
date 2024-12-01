@@ -16,9 +16,10 @@ Vous apprendrez à construire un pipeline analytique local pour manipuler, trans
 
 ---
 
-![Aperçu de l'application](/Users/matt/Documents/dbt/dbt_init/first_dbt_test/models/example/assets/capture1.jpeg)
+![Aperçu de l'application](models/example/assets/capture1.jpeg)
 
-![Aperçu de l'application](/Users/matt/Documents/dbt/dbt_init/first_dbt_test/models/example/assets/capture1.jpeg)
+
+![Aperçu de l'application](models/example/assets/capture2.jpeg)
 
 
 ## 🛠️ Technologies utilisées et leur rôle
