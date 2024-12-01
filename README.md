@@ -16,6 +16,11 @@ Vous apprendrez à construire un pipeline analytique local pour manipuler, trans
 
 ---
 
+![Aperçu de l'application](assets/capture1.jpeg)
+
+![Aperçu de l'application](assets/capture2.jpeg)
+
+
 ## 🛠️ Technologies utilisées et leur rôle
 
 ### 1️⃣ dbt (Data Build Tool)
