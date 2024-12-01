@@ -1,8 +1,8 @@
 # 📊 Projet d'initiation : dbt + DuckDB + Streamlit
 
 <p align="center">
-  <img src="https://www.getdbt.com/ui/img/dbt-logo.svg" alt="dbt Logo" width="200">
-  <img src="https://duckdb.org/assets/logo.png" alt="DuckDB Logo" width="200">
+  <img src="https://www.decideom.fr/assets/uploads/2023/03/dbt-logo.png" alt="dbt Logo" width="200">
+  <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*-CoioEomCE_kHUX4.png" alt="DuckDB Logo" width="200">
   <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit Logo" width="200">
 </p>
 
